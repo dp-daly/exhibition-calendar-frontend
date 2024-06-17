@@ -15,8 +15,8 @@ function App() {
     <Navbar />
     <Routes>
       <Route path="/" element={<Gallery />} />
-      <Route path="/auth/signup" element={<Signup />} />
-      <Route path="/auth/signin" element={<Signin />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/signin" element={<Signin />} />
       <Route path="/gallery/create" element={<CreateExhibition />} />
       <Route path="/gallery/edit" element={<EditExhibition />} />
       <Route path="/gallery/:exhibitionId" element={<ShowExhibition />} />

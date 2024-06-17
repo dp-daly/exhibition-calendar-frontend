@@ -8,8 +8,8 @@ function Navbar() {
                 <div className="navbar-item">
                     <div className="buttons">
                         <Link to="/" className="button is-warning">Gallery</Link>
-                        <Link to="/auth/signup" className="button">Sign up</Link>
-                        <Link to="/auth/signin" className="button">Sign in</Link>
+                        <Link to="/signup" className="button">Sign up</Link>
+                        <Link to="/signin" className="button">Sign in</Link>
                         <Link to="/gallery/create" className="button">Create</Link>
                         <Link to="/gallery/edit" className="button">Edit</Link>
                     </div>
