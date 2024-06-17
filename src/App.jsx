@@ -1,3 +1,4 @@
+import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Gallery from './components/Gallery'
@@ -6,6 +7,7 @@ import Signin from './components/Signin'
 import CreateExhibition from './components/CreateExhibition'
 import ShowExhibition from './components/ShowExhibition'
 import EditExhibition from './components/EditExhibition'
+
 
 
 function App() {

@@ -1,0 +1,25 @@
+.img-placeholder {
+    width: 300px;
+    height: 270px;
+    object-fit: cover;
+    background-color: gray;
+    border-radius: 8px;
+    overflow: hidden; 
+    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.5);
+}
+
+.img-placeholder img {
+    /* object-fit: cover; */
+    border-radius: 8px; 
+}
+  
+.card-footer {
+    margin: 15px 0px 0px 0px;
+    font-size: 14px;
+    height: auto;
+    text-align: center;
+  }
+  
+.card-footer * {
+    margin-top: auto;
+  }
