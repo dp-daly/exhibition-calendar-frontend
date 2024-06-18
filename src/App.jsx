@@ -19,7 +19,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/signin" element={<Signin />} />
       <Route path="/gallery/create" element={<CreateExhibition />} />
-      <Route path="/gallery/edit" element={<EditExhibition />} />
+      <Route path="/gallery/:exhibitionId/edit" element={<EditExhibition />} />
       <Route path="/gallery/:exhibitionId" element={<ShowExhibition />} />
       <Route path="/user/:userId" element={<Planner />} />
     </Routes>

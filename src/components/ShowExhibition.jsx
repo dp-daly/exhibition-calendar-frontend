@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
+import { getPayload, isAdmin } from '../lib/auth.js'
+
 
 
 function ShowExhibition() {
@@ -22,6 +24,7 @@ function ShowExhibition() {
       return <div className="section">
       <div className="container">
         <h1 className="title">{exhibition.exhibitionTitle}</h1>
+        {isAdmin() && <Link to={`/gallery/${exhibitionId}/edit`} className="button">Edit</Link>}
       </div>
     </div>
 
