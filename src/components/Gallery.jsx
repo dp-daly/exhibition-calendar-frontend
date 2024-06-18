@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import '../App.css'
 
@@ -19,13 +20,15 @@ function Gallery() {
     return (
         <div>
             {exhibitions.map((exhibition, index) => (
-                <div key={index}>
-                    <h2>{exhibition.exhibitionTitle}</h2>
-                    <img className="img-placeholder" src={exhibition.image} />
-                </div>
+                <Link to={`/gallery/${exhibition._id}`} key={index}>
+                    <div>
+                        <h2>{exhibition.exhibitionTitle}</h2>
+                        <img className="img-placeholder" src={exhibition.image} alt={exhibition.exhibitionTitle} />
+                    </div>
+                </Link>
             ))}
         </div>
-    );
+    )
 }
 
 export default Gallery
