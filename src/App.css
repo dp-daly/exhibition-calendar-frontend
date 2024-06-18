@@ -115,12 +115,24 @@ a:hover {
     margin-top: auto;
   }
 
-.footer {
+#footer-wrapper {
   display: flex;
-  height: 200px;
   flex-direction: row;
+  height: 200px;
   justify-content: space-between;
+  padding: 0px 70px 0px 70px;
   border-top: 5px solid #0b0bf9;
-  background-color: white;
   margin-top: 50px;
+}
+
+.footer-columns {
+  display: flex;
+  margin-top: 20px;
+  gap: 30px;
+}
+
+.footerlogo {
+  display: flex;
+  width: 300px;
+  align-self: center;
 }

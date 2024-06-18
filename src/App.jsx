@@ -8,6 +8,7 @@ import CreateExhibition from './components/CreateExhibition'
 import ShowExhibition from './components/ShowExhibition'
 import EditExhibition from './components/EditExhibition'
 import Planner from './components/Planner'
+import Footer from './components/Footer'
 
 
 
@@ -24,8 +25,7 @@ function App() {
       <Route path="/gallery/:exhibitionId" element={<ShowExhibition />} />
       <Route path="/user/:userId" element={<Planner />} />
     </Routes>
-    <div className="footer"><div className="logo"></div>
-    </div>
+    <Footer />
     </div>
   </Router>
 }

@@ -24,11 +24,11 @@ function Navbar() {
                 <div className="logo"></div>
                 <div className="navbar-item">
                     <div className="buttons">
-                        <Link to="/" className="button is-danger">Gallery</Link>
-                        {!isLoggedIn && <Link to="/signup" className="button">Sign up</Link>}
-                        {!isLoggedIn && <Link to="/signin" className="button">Sign in</Link>}
+                        <Link to="/" className="button is-dark">Gallery</Link>
+                        {!isLoggedIn && <Link to="/signup" className="button is-warning">Sign up</Link>}
+                        {!isLoggedIn && <Link to="/signin" className="button is-danger">Sign in</Link>}
                         {isAdmin() && <Link to="/gallery/create" className="button">Create</Link>}
-                        {isLoggedIn && <Link to={`/user/${getPayload().userId}`} className="button">My planner</Link>}
+                        {isLoggedIn && <Link to={`/user/${getPayload().userId}`} className="button is-danger">My planner</Link>}
                         {isLoggedIn && <button className="button" onClick={logout}>Sign out</button>}
                     </div>
                 </div>
