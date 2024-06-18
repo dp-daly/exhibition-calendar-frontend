@@ -22,10 +22,7 @@ function Signup() {
         //create a copy of the form data
         const newFormData = structuredClone(formData)
         //e.target.value gets the new value entered by the user
-        newFormData[e.target.name] = e.target.value
-
-        console.log(newFormData)
-        
+        newFormData[e.target.name] = e.target.value        
         // update the state with new form data
         setFormData(newFormData)
     }

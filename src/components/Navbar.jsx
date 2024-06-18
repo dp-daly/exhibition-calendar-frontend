@@ -1,7 +1,8 @@
 import { Link, useLocation } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 
 function Navbar() {
+    const userId = localStorage.getItem('token')
+    console.log(userId)
     return (
         <nav className="navbar">
             <div className="navbar-menu is-active">
