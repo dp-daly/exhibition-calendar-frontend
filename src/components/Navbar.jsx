@@ -10,7 +10,6 @@ function Navbar() {
 
     useEffect(() => {
         setIsLoggedIn(getPayload())
-        console.log(getPayload())
         isAdmin()
       }, [location])
     

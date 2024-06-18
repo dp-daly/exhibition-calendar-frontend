@@ -8,11 +8,13 @@ export default function Signin() {
         email: '',
         password: '',
     })
+
     function handleChange(e) {
         const newFormData = structuredClone(formData)
         newFormData[e.target.name] = e.target.value
         setFormData(newFormData)
     }
+
     async function handleSubmit(e) {
         e.preventDefault()
         try {
@@ -25,6 +27,7 @@ export default function Signin() {
             console.log(err.response.data)
         }
     }
+    
     return <div className="section">
         <div className="container">
             <form onSubmit={handleSubmit}>

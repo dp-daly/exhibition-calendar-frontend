@@ -2,8 +2,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-
-
 function EditExhibition() {
 
     const navigate = useNavigate()
@@ -38,9 +36,7 @@ function EditExhibition() {
     async function handleSubmit(e) {
         e.preventDefault()
         try {
-            // ! Get our token from localStorage
             const token = localStorage.getItem('token')
-
             const { data } = await axios.put(`/api/gallery/${exhibitionId}`, formData, {
                 headers: { Authorization: `Bearer ${token}` }
             })
