@@ -20,7 +20,13 @@ export default function Planner() {
             <p>Hello {user.firstName}</p>
             <ul>
                 {user.savedExhibitions.map((exhibition, index) => (
+                    <>
                     <li key={exhibition._id}>{exhibition.exhibitionTitle}</li>
+                    <div className="img-container">
+                    <li><img className="img-placeholder" src={exhibition.image} alt="" /></li>
+                    <li><button className="remove-from-planner-button">x</button></li>
+                    </div>
+                    </>
                 ))}
             </ul>
         </div>
