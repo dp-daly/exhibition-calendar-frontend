@@ -1,3 +1,90 @@
+* {
+  box-sizing: border-box;
+  font-family: "Vollkorn", helvetica;
+}
+
+body {
+  height: auto;
+  background-color: #cdd3d3;
+  /* background-image: url('https://i.pinimg.com/736x/68/b7/4f/68b74feae577f960fe3195506103c249.jpg'); */
+  background-size: fill; 
+}
+
+.page-wrapper {
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  height: auto;
+  margin: 0px 60px 0px 60px;
+  padding: 20px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0b0bf9;
+}
+
+.navbar {
+  margin-bottom: 50px;
+  border-bottom: 5px solid #0b0bf9;
+}
+
+.logo {
+  height: 150px;
+  width: 150px;
+  background-image: url('https://i.ibb.co/1bM0rQy/Exhibition-logo-2.png');
+  background-size: cover;
+}
+
+.hero {
+  height: 60vh; 
+  margin-bottom: 50px;
+  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.5);
+  background-image: url('https://d1inegp6v2yuxm.cloudfront.net/royal-academy/image/upload/c_fill,cs_tinysrgb,dn_72,f_auto,fl_progressive.keep_iptc,w_1280,h_720,ar_16:9/v9n8j8ubricydqeht7cm.jpg');
+  background-size: cover; 
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+  cursor: pointer;
+}
+
+.pic-heading {
+  font-size: x-large;
+  color: #4aade2;
+  margin: 0;
+}
+
+.hero p {
+  width: 100%;
+  background-image: linear-gradient(rgba(26, 19, 19, 0.71), rgba(11, 2, 2, 0.767));
+  color: lightgray;
+  padding: 5px;
+  position: absolute;
+  margin: 0;
+  bottom: 0; 
+  left: 0; 
+}
+
+.title {
+  font-size: xx-large;
+}
+
+.box-wrapper {
+  display: flex;
+  height: auto;
+  width: auto;
+  flex-grow: 1; 
+  flex-direction: row wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 0px 20px 20px 20px; 
+  margin-top: 20px;
+}
+
 .img-placeholder {
     width: 300px;
     height: 270px;
@@ -9,17 +96,31 @@
 }
 
 .img-placeholder img {
-    /* object-fit: cover; */
     border-radius: 8px; 
 }
   
 .card-footer {
-    margin: 15px 0px 0px 0px;
-    font-size: 14px;
-    height: auto;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0px 0px 0px;
+  height: auto;
+  text-align: center;
   }
+
+.exhibition-title {
+  font-size: x-large;
+}
   
 .card-footer * {
     margin-top: auto;
   }
+
+.footer {
+  display: flex;
+  height: 200px;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: 5px solid #0b0bf9;
+  background-color: white;
+  margin-top: 50px;
+}

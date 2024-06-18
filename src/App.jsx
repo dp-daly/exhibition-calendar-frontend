@@ -13,6 +13,7 @@ import Planner from './components/Planner'
 
 function App() {
   return <Router>
+    <div className="page-wrapper"> 
     <Navbar />
     <Routes>
       <Route path="/" element={<Gallery />} />
@@ -23,6 +24,9 @@ function App() {
       <Route path="/gallery/:exhibitionId" element={<ShowExhibition />} />
       <Route path="/user/:userId" element={<Planner />} />
     </Routes>
+    <div className="footer"><div className="logo"></div>
+    </div>
+    </div>
   </Router>
 }
 

@@ -21,9 +21,10 @@ function Navbar() {
     return (
         <nav className="navbar">
             <div className="navbar-menu is-active">
+                <div className="logo"></div>
                 <div className="navbar-item">
                     <div className="buttons">
-                        <Link to="/" className="button is-warning">Gallery</Link>
+                        <Link to="/" className="button is-danger">Gallery</Link>
                         {!isLoggedIn && <Link to="/signup" className="button">Sign up</Link>}
                         {!isLoggedIn && <Link to="/signin" className="button">Sign in</Link>}
                         {isAdmin() && <Link to="/gallery/create" className="button">Create</Link>}

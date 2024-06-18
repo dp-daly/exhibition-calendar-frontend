@@ -18,17 +18,33 @@ function Gallery() {
     }
 
     return (
-        <div>
+        <div className="page-wrapper">
+          <div className="hero" aria-label="Image of sandhill cranes in flight over lake.">
+            <p>
+              <div className="pic-heading">Royal Academy Summer Exhibition</div>
+              <div>The Turner prize-winning Assemble collective has curated the architecture rooms at the 2024 Royal Academy Summer Exhibition with a vision to inspire visitors by bringing the raw creativity – and messiness – of the studio into the heart of the institution. But this year's show has divided critics - is the RA's summer exhibition still relevant or a vestige of a bygone era? </div>
+            </p>
+          </div>
+          <h1 className="title">Gallery</h1>
+          <div className="box-wrapper">
             {exhibitions.map((exhibition, index) => (
-                <Link to={`/gallery/${exhibition._id}`} key={index}>
-                    <div>
-                        <h2>{exhibition.exhibitionTitle}</h2>
-                        <img className="img-placeholder" src={exhibition.image} alt={exhibition.exhibitionTitle} />
-                    </div>
-                </Link>
+              <Link to={`/gallery/${exhibition._id}`} key={index}>
+                <div>
+                  <img className="img-placeholder" src={exhibition.image} alt={exhibition.exhibitionTitle} />
+                </div>
+                <div className="card-footer">
+                <div className="exhibition-title">
+                    {exhibition.exhibitionTitle}
+                </div>
+                <div>
+                    {exhibition.museum}
+                </div>
+                </div>    
+              </Link>
             ))}
+          </div>
         </div>
-    )
+      );
 }
 
 export default Gallery
