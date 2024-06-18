@@ -18,6 +18,7 @@ export default function Signin() {
         try {
             const { data } = await axios.post('/api/auth/signin', formData)
             const token = data.token
+            console.log(token)
             localStorage.setItem('token', token)
             navigate('/')
         } catch (err) {
