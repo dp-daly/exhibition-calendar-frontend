@@ -27,7 +27,7 @@ export default function Signin() {
             console.log(err.response.data)
         }
     }
-    
+
     return <div className="section">
         <div className="container">
             <form onSubmit={handleSubmit}>
@@ -40,6 +40,7 @@ export default function Signin() {
                             name={'email'}
                             onChange={handleChange}
                             value={formData.email}
+                            autoComplete="off"
                         />
                     </div>
                 </div>
@@ -52,6 +53,7 @@ export default function Signin() {
                             name={'password'}
                             onChange={handleChange}
                             value={formData.password}
+                            autoComplete="off"
                         />
                     </div>
                 </div>

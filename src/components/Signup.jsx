@@ -49,6 +49,7 @@ function Signup() {
                             name={'firstName'}
                             onChange={handleChange}
                             value={formData.firstName}
+                            autoComplete="off"
                         />
                     </div>
                 </div>
@@ -61,6 +62,7 @@ function Signup() {
                             name={'lastName'}
                             onChange={handleChange}
                             value={formData.lastName}
+                            autoComplete="off"
                         />
                     </div>
                 </div>
@@ -73,6 +75,7 @@ function Signup() {
                             name={'location'}
                             onChange={handleChange}
                             value={formData.location}
+                            autoComplete="off"
                         />
                     </div>
                 </div>
@@ -85,6 +88,7 @@ function Signup() {
                             name={'username'}
                             onChange={handleChange}
                             value={formData.username}
+                            autoComplete="off"
                         />
                     </div>
                 </div>
@@ -97,6 +101,7 @@ function Signup() {
                             name={'email'}
                             onChange={handleChange}
                             value={formData.email}
+                            autoComplete="off"
                         />
                     </div>
                 </div>
@@ -109,6 +114,7 @@ function Signup() {
                             name={'password'}
                             onChange={handleChange}
                             value={formData.password}
+                            autoComplete="off"
                         />
                     </div>
                 </div>
@@ -121,6 +127,7 @@ function Signup() {
                             name={'passwordConfirmation'}
                             onChange={handleChange}
                             value={formData.passwordConfirmation}
+                            autoComplete="off"
                         />
                     </div>
                 </div>

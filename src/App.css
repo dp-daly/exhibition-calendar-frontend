@@ -44,7 +44,7 @@ a:hover {
   height: 60vh; 
   margin-bottom: 50px;
   box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.5);
-  background-image: url('https://d1inegp6v2yuxm.cloudfront.net/royal-academy/image/upload/c_fill,cs_tinysrgb,dn_72,f_auto,fl_progressive.keep_iptc,w_1280,h_720,ar_16:9/v9n8j8ubricydqeht7cm.jpg');
+  background-image: url('https://theglossarymagazine.com/wp-content/uploads/Nicola-Turner-The-Meddling-Fiend.webp');
   background-size: cover; 
   background-position: center;
   cursor: pointer;
@@ -75,11 +75,8 @@ a:hover {
 
 .box-wrapper {
   display: flex;
-  height: auto;
-  width: auto;
-  flex-grow: 1; 
-  flex-direction: row wrap;
-  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row; 
   gap: 20px;
   padding: 0px 20px 20px 20px; 
   margin-top: 20px;
@@ -108,7 +105,12 @@ a:hover {
   }
 
 .exhibition-title {
+  height: 30px;
+  width: 300px;
   font-size: x-large;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
   
 .card-footer * {
@@ -117,8 +119,8 @@ a:hover {
 
 #footer-wrapper {
   display: flex;
-  flex-direction: row;
-  height: 200px;
+  flex-flow: row wrap;
+  height: 170px;
   justify-content: space-between;
   padding: 0px 70px 0px 70px;
   border-top: 5px solid #0b0bf9;
@@ -132,7 +134,7 @@ a:hover {
 }
 
 .footerlogo {
-  display: flex;
   width: 300px;
   align-self: center;
+  margin-top: 20px;
 }

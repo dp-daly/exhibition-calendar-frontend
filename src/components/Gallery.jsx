@@ -25,7 +25,7 @@ function Gallery() {
               <div>The Turner prize-winning Assemble collective has curated the architecture rooms at the 2024 Royal Academy Summer Exhibition with a vision to inspire visitors by bringing the raw creativity – and messiness – of the studio into the heart of the institution. But this year's show has divided critics - is the RA's summer exhibition still relevant or a vestige of a bygone era? </div>
             </p>
           </div>
-          <h1 className="title">Gallery</h1>
+          <h1 className="title">Current and upcoming exhibitions</h1>
           <div className="box-wrapper">
             {exhibitions.map((exhibition, index) => (
               <Link to={`/gallery/${exhibition._id}`} key={index}>

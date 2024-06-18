@@ -17,7 +17,7 @@ export default function Planner() {
 
     return (
         <div>
-            <p>Hello {user.username}</p>
+            <p>Hello {user.firstName}</p>
             <ul>
                 {user.savedExhibitions.map((exhibition, index) => (
                     <li key={exhibition._id}>{exhibition.exhibitionTitle}</li>
