@@ -1,22 +1,41 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import '../App.css'
+import { ToastContainer, Zoom, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Gallery() {
 
     const [exhibitions, setExhibitions] = useState([])
     const [search, setSearch] = useState('')
     const [selectedLocation, setSelectedLocation] = useState('')
+    const [total, setTotal] = useState({
+        total: 0
+      })
 
     useEffect(() => {
+        toast.dismiss()
         fetchExhibitions()
-    }, [])
+        if (search === "") {
+            return
+        } else if (total === 0) {
+            toast(`There are no results for ${search}`)
+        } else {
+            toast(
+            <>
+            There are <b>{total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</b> results for <b>{search}</b>.
+            </>
+            )
+        }
+    }, [search, total])
 
 
     async function fetchExhibitions() {
         const resp = await fetch('/api/');
         const data = await resp.json();
         setExhibitions(data);
+        setTotal(total)
     }
 
     function filterExhibitions() {
@@ -46,6 +65,20 @@ function Gallery() {
     
     return (
         <div className="page-wrapper">
+            <ToastContainer
+            position="bottom-center"
+            autoClose={2000}
+            hideProgressBar
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            transition: Zoom
+            toastStyle={{ backgroundColor: "blue", color: "white" }}
+            />
           <div className="hero" aria-label="Image of sandhill cranes in flight over lake.">
             <p>
               <div className="pic-heading">Royal Academy Summer Exhibition</div>
