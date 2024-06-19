@@ -20,7 +20,7 @@ export default function Planner() {
     useEffect(() => {
         const toastMessage = localStorage.getItem('toastMessage')
         if (toastMessage) {
-          toast.success(toastMessage)
+          toast(toastMessage)
           localStorage.removeItem('toastMessage')
         }
       }, [])
