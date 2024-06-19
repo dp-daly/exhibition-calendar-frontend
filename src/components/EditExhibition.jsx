@@ -17,6 +17,7 @@ function EditExhibition() {
         image: "",
         movement: "",
         price: "",
+        description: "",
         recommended: false,
         comments: []
     })
@@ -163,6 +164,18 @@ function EditExhibition() {
                             name={'price'}
                             onChange={handleChange}
                             value={formData.price}
+                        />
+                    </div>
+                </div>
+                <div className="field">
+                    <label className="label">Description:</label>
+                    <div className="control">
+                        <input
+                            className="input"
+                            type="text"
+                            name={'description'}
+                            onChange={handleChange}
+                            value={formData.description}
                         />
                     </div>
                 </div>

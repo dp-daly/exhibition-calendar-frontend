@@ -18,6 +18,7 @@ const [formData, setFormData] = useState({
     image: "",
     movement: "",
     price: "",
+    description: "",
     recommended: false,
     comments: []
 })
@@ -153,6 +154,18 @@ async function handleSubmit(e) {
             name={'price'}
             onChange={handleChange}
             value={formData.price}
+          />
+        </div>
+      </div>
+      <div className="field">
+        <label className="label">Description:</label>
+        <div className="control">
+          <input
+            className="input"
+            type="text"
+            name={'description'}
+            onChange={handleChange}
+            value={formData.description}
           />
         </div>
       </div>
