@@ -37,20 +37,6 @@ function ShowExhibition() {
     }
   }
 
-  // async function handleAddToPlanner() {
-  //   try {
-  //     const userId = getPayload().userId
-  //     const token = localStorage.getItem("token")
-  //     await axios.post(`/api/user/${userId}/${exhibitionId}`, {
-  //       headers: { Authorization: `Bearer ${token}` }
-  //     })
-  //     localStorage.setItem('toastMessage', `${exhibition.exhibitionTitle} has been added to your planner!`)
-  //     navigate(`/user/${userId}`)
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-  // }
-
   async function handleAddToPlanner() {
     try {
       const userId = getPayload().userId;
@@ -72,10 +58,8 @@ function ShowExhibition() {
     }
   }
 
-  return <div>
+  return (
     <div className="show-page-container">
-
-      <div>
 
         <h1 className="title">{exhibition.exhibitionTitle}</h1>
         <h2 className="exhibition-title">{exhibition.museum}, {exhibition.location}</h2>
@@ -84,7 +68,7 @@ function ShowExhibition() {
 
         <div className='show-page-image-and-tags-container'>
 
-          <img src={exhibition.image} alt={exhibition.exhibitionTitle} />
+          <img className="image-on-show-page" src={exhibition.image} alt={exhibition.exhibitionTitle} />
 
           <div className="tag-container">
             <div className="tag">{exhibition.movement}</div>
@@ -94,35 +78,17 @@ function ShowExhibition() {
 
         </div>
 
-        <p className='show-page-description'>{exhibition.description}</p>
+      <p className='show-page-description'>{exhibition.description}</p>
 
-
-        <div className="buttons">
-          {isLoggedIn && <button className="button" onClick={handleAddToPlanner}>Add to planner</button>}
-          {isAdmin() && <Link to={`/gallery/${exhibitionId}/edit`} className="button">Edit</Link>}
-          {isAdmin() && <button className="button is-danger" onClick={handleDelete}>Remove this exhibition from the gallery</button>}
-        </div>
+      <div className="buttons">
+        {isLoggedIn && <button className="button" onClick={handleAddToPlanner}>Add to planner</button>}
+        {isAdmin() && <Link to={`/gallery/${exhibitionId}/edit`} className="button">Edit</Link>}
+        {isAdmin() && <button className="button is-danger" onClick={handleDelete}>Remove this exhibition from the gallery</button>}
+      </div>
 
       </div>
 
-
-
-    </div>
-
-    <ToastContainer
-        position="bottom-center"
-        autoClose={2000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-        toastStyle={{ backgroundColor: "black", color: "white" }}
-        />
-  </div>
+  )
 
 
 }
