@@ -52,8 +52,6 @@ function ShowExhibition() {
   return (
     <div className="show-page-container">
 
-      <div>
-
         <h1 className="title">{exhibition.exhibitionTitle}</h1>
         <h2 className="exhibition-title">{exhibition.museum}, {exhibition.location}</h2>
         <p>{exhibition.startDate} until {exhibition.endDate}</p>
@@ -82,9 +80,6 @@ function ShowExhibition() {
 
       </div>
 
-
-
-    </div>
   )
 
 
