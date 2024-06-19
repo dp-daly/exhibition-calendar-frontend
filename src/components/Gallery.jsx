@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import '../App.css'
 import { ToastContainer, Zoom, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,32 +10,31 @@ function Gallery() {
     const [exhibitions, setExhibitions] = useState([])
     const [search, setSearch] = useState('')
     const [selectedLocation, setSelectedLocation] = useState('')
-    const [total, setTotal] = useState({
-        total: 0
-      })
+    const [total, setTotal] = useState(0)
+
+    useEffect(() => {
+        fetchExhibitions()
+    }, [])
 
     useEffect(() => {
         toast.dismiss()
-        fetchExhibitions()
-        if (search === "") {
-            return
+        if (search === '') {
+          return;
         } else if (total === 0) {
-            toast(`There are no results for ${search}`)
+          toast(`There are no results for ${search}`);
         } else {
-            toast(
+          toast(
             <>
-            There are <b>{total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</b> results for <b>{search}</b>.
+              There are <b>{total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</b> results for <b>{search}</b>.
             </>
-            )
+          );
         }
-    }, [search, total])
-
+      }, [search, total]);
 
     async function fetchExhibitions() {
         const resp = await fetch('/api/');
         const data = await resp.json();
         setExhibitions(data);
-        setTotal(total)
     }
 
     function filterExhibitions() {
@@ -48,9 +47,21 @@ function Gallery() {
             (exhibitionTitle.includes(filterText) || artist.includes(filterText) || institution.includes(filterText)) &&
             (selectedLocation === '' || exhibition.location === selectedLocation)
           );
-        })
+        }) 
         return filteredExhibs
       }
+
+      const memorisedFilteredExhibs = useMemo(() => {
+        const filteredExhibs = filterExhibitions();
+        return filteredExhibs;
+      }, [exhibitions, search, selectedLocation]
+    );    
+
+
+      useEffect(() => {
+        setTotal(memorisedFilteredExhibs.length);
+    }, [memorisedFilteredExhibs]);
+
 
       function getLocations() {
         const mappedExhibs = exhibitions.map(exhib => exhib.location)
