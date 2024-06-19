@@ -25,7 +25,9 @@ const [formData, setFormData] = useState({
 async function handleSubmit(e) {
     e.preventDefault()
     try {
+      // ! Get our token from localStorage
       const token = localStorage.getItem('token')
+      // ! Attach the token as a header when posting our new cheese
       const { data } = await axios.post('/api/', formData, {
         headers: { Authorization: `Bearer ${token}` }
       })
