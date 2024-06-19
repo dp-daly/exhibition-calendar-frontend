@@ -42,6 +42,7 @@ function ShowExhibition() {
       await axios.post(`/api/user/${userId}/${exhibitionId}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
+      localStorage.setItem('toastMessage', `${exhibition.exhibitionTitle} added to your planner!`)
       navigate(`/user/${userId}`)
     } catch (err) {
       console.log(err)
