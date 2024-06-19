@@ -174,4 +174,16 @@ a:hover {
 
 .show-page-description {
   max-width: 600px;
+  margin: 20px 0px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 14px;
+  margin: 5px; 
 }
