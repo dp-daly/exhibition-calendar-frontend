@@ -35,19 +35,30 @@ export default function Planner() {
     }
 
     return (
-        <div>
-            <p>Hello {user.firstName}</p>
-            <ul>
+        <div className="page-wrapper">
+            <h1 className="title">Your exhibitions</h1>
+            <div className="box-wrapper">
                 {user.savedExhibitions.map((exhibition, index) => (
-                    <>
-                        <li key={exhibition._id}>{exhibition.exhibitionTitle}</li>
-                        <div className="img-container">
-                            <li><img id={exhibition._id} className="img-placeholder" src={exhibition.image} alt="" /></li>
-                            <li><button id={exhibition._id} className="remove-from-planner-button" onClick={handleRemoveFromPlanner}>x</button></li>
+                    <Link to={`/gallery/${exhibition._id}`} key={index}>
+                        <div>
+                            <div className="img-container">
+                                <img className="img-placeholder" src={exhibition.image} alt={exhibition.exhibitionTitle} />
+                                <button id={exhibition._id} className="remove-from-planner-button" onClick={handleRemoveFromPlanner}>x</button>
+                            </div>
                         </div>
-                    </>
+                        <div className="card-footer">
+                            <div className="exhibition-title">
+                                {exhibition.exhibitionTitle}
+                            </div>
+                            <div>
+                                {exhibition.museum}
+                            </div>
+                        </div>
+                    </Link>
                 ))}
-            </ul>
+            </div>
         </div>
     )
 }
+
+
