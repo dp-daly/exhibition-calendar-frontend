@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import { useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { getPayload, isAdmin } from '../lib/auth.js'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Planner() {
-
-    const navigate = useNavigate()
 
     const [user, setUser] = useState({ savedExhibitions: [] })
     const { userId } = useParams()
@@ -78,7 +76,7 @@ export default function Planner() {
                 draggable
                 pauseOnHover
                 theme="dark"
-                toastStyle={{ backgroundColor: "blue", color: "white" }}
+                toastStyle={{ backgroundColor: "seagreen", color: "white" }}
             />
         </div>
     )

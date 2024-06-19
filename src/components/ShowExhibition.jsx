@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
 import { getPayload, isAdmin } from '../lib/auth.js'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ShowExhibition() {
 
@@ -35,17 +37,38 @@ function ShowExhibition() {
     }
   }
 
+  // async function handleAddToPlanner() {
+  //   try {
+  //     const userId = getPayload().userId
+  //     const token = localStorage.getItem("token")
+  //     await axios.post(`/api/user/${userId}/${exhibitionId}`, {
+  //       headers: { Authorization: `Bearer ${token}` }
+  //     })
+  //     localStorage.setItem('toastMessage', `${exhibition.exhibitionTitle} has been added to your planner!`)
+  //     navigate(`/user/${userId}`)
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
+
   async function handleAddToPlanner() {
     try {
-      const userId = getPayload().userId
-      const token = localStorage.getItem("token")
-      await axios.post(`/api/user/${userId}/${exhibitionId}`, {
+      const userId = getPayload().userId;
+      const token = localStorage.getItem("token");
+      const response = await axios.post(`/api/user/${userId}/${exhibitionId}`, {
         headers: { Authorization: `Bearer ${token}` }
-      })
-      localStorage.setItem('toastMessage', `${exhibition.exhibitionTitle} added to your planner!`)
-      navigate(`/user/${userId}`)
+      });
+  
+      if (response.status === 200) {
+        localStorage.setItem('toastMessage', `${exhibition.exhibitionTitle} has been added to your planner!`);
+        navigate(`/user/${userId}`);
+      }
     } catch (err) {
-      console.log(err)
+      if (err.response && err.response.status === 400 && err.response.data.message === "Exhibition already in planner") {
+        toast.error("This exhibition is already in your planner!");
+      } else {
+        console.log(err);
+      }
     }
   }
 
@@ -85,6 +108,20 @@ function ShowExhibition() {
 
 
     </div>
+
+    <ToastContainer
+        position="bottom-center"
+        autoClose={2000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        toastStyle={{ backgroundColor: "black", color: "white" }}
+        />
   </div>
 
 
