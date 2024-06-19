@@ -11,10 +11,13 @@ function Gallery() {
     const [search, setSearch] = useState('')
     const [selectedLocation, setSelectedLocation] = useState('')
     const [total, setTotal] = useState(0)
+    const [page, setPage] = useState(1)
+    const [totalPages, setTotalPages] = useState(1);
+
 
     useEffect(() => {
         fetchExhibitions()
-    }, [])
+    }, [page, search, selectedLocation])
 
     useEffect(() => {
         toast.dismiss()
@@ -74,6 +77,16 @@ function Gallery() {
       function clearFilters() {
         setSelectedLocation('');
       }
+
+      function handlePage(action) {
+        setPage(currentPage => {
+          if (action === 'previous') {
+            return currentPage - 1;
+          } else {
+            return currentPage + 1;
+          }
+        });
+      }
     
     return (
         <div className="page-wrapper">
@@ -90,13 +103,15 @@ function Gallery() {
             theme="dark"
             toastStyle={{ backgroundColor: "blue", color: "white" }}
             />
-          <div className="hero" aria-label="Image of sandhill cranes in flight over lake.">
-            <p>
-              <div className="pic-heading">Royal Academy Summer Exhibition</div>
-              <div>The Turner prize-winning Assemble collective has curated the architecture rooms at the 2024 Royal Academy Summer Exhibition with a vision to inspire visitors by bringing the raw creativity – and messiness – of the studio into the heart of the institution. But this year's show has divided critics - is the RA's summer exhibition still relevant or a vestige of a bygone era? </div>
-            </p>
-          </div>
-          <h1 className="title">Current and upcoming exhibitions</h1>
+            <div className="hero" aria-label="Image of sandhill cranes in flight over lake.">
+                <div id="p">
+                <div className="pic-heading">Royal Academy Summer Exhibition</div>
+                <div>
+                    The Turner prize-winning Assemble collective has curated the architecture rooms at the 2024 Royal Academy Summer Exhibition with a vision to inspire visitors by bringing the raw creativity – and messiness – of the studio into the heart of the institution. But this year's show has divided critics - is the RA's summer exhibition still relevant or a vestige of a bygone era?
+                </div>
+                </div>
+                </div>
+            <h1 className="title">Current and upcoming exhibitions</h1>
           <input
           className="input"
           placeholder="Search exhibitions..."
@@ -121,8 +136,8 @@ function Gallery() {
                 </div>
             </div>
           <div className="box-wrapper">
-            {filterExhibitions().map((exhibition, {index}) => (
-              <Link to={`/gallery/${exhibition._id}`} key={index}>
+            {filterExhibitions().map((exhibition) => (
+              <Link to={`/gallery/${exhibition._id}`} key={exhibition._id}>
                 <div>
                   <img className="img-placeholder" src={exhibition.image} alt={exhibition.exhibitionTitle} />
                 </div>
@@ -137,6 +152,11 @@ function Gallery() {
               </Link>
             ))}
           </div>
+          <div id="page">
+                    <button className="button" disabled={page === 1} onClick={() => handlePage('previous')}>Previous</button>
+                    Page {page} of {totalPages}
+                    <button className="button" onClick={() => handlePage('next')}>Next</button>
+                </div>
         </div>
       );
 }

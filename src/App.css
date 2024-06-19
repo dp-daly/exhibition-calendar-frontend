@@ -59,7 +59,7 @@ a:hover {
   margin: 0;
 }
 
-.hero p {
+#p {
   width: 100%;
   background-image: linear-gradient(rgba(26, 19, 19, 0.71), rgba(11, 2, 2, 0.767));
   color: lightgray;
@@ -131,6 +131,14 @@ a:hover {
 .card-footer * {
     margin-top: auto;
   }
+
+#page {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
 
 #footer-wrapper {
   display: flex;
