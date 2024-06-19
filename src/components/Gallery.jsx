@@ -25,13 +25,25 @@ function Gallery() {
           const artist = exhibition.artists.toLowerCase();
           const institution = exhibition.museum.toLowerCase();
           const filterText = search.toLowerCase()
-          return exhibitionTitle.includes(filterText) || artist.includes(filterText) || institution.includes(filterText)
+          return (
+            (exhibitionTitle.includes(filterText) || artist.includes(filterText) || institution.includes(filterText)) &&
+            (selectedLocation === '' || exhibition.location === selectedLocation)
+          );
         })
         return filteredExhibs
       }
 
-    console.log(search)
+      function getLocations() {
+        const mappedExhibs = exhibitions.map(exhib => exhib.location)
+        const uniqueLocations = new Set(mappedExhibs)
+        const arrayLocations = Array.from(uniqueLocations)
+        return arrayLocations
+      }
 
+      function clearFilters() {
+        setSelectedLocation('');
+      }
+    
     return (
         <div className="page-wrapper">
           <div className="hero" aria-label="Image of sandhill cranes in flight over lake.">
@@ -47,8 +59,25 @@ function Gallery() {
           value={search}
           onChange={(event) => setSearch(event.target.value)}
           />
+          <div className="locations">
+          <h1>Cities:</h1>
+          <div className="buttons">
+            {getLocations().map(location => (
+                <button
+                key={location}
+                id="location-button"
+                onClick={(event) => setSelectedLocation(event.target.innerHTML)}
+                className="button">
+                    {location}
+                    </button>
+                ))}
+                <div id="clear">
+                <button className="button" onClick={clearFilters}>Clear filter</button>
+                </div>
+                </div>
+            </div>
           <div className="box-wrapper">
-            {filterExhibitions().map((exhibition, index) => (
+            {filterExhibitions().map((exhibition, {index}) => (
               <Link to={`/gallery/${exhibition._id}`} key={index}>
                 <div>
                   <img className="img-placeholder" src={exhibition.image} alt={exhibition.exhibitionTitle} />
