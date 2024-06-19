@@ -49,25 +49,39 @@ function ShowExhibition() {
   }
 
   return <div>
-    <div className="container">
+    <div className="show-page-container">
 
-      <h1 className="title">{exhibition.exhibitionTitle}</h1>
-      <h2 className="exhibition-title">{exhibition.museum}, {exhibition.location}</h2>
-      <p>{exhibition.startDate} until {exhibition.endDate}</p>
-      
-      <img src={exhibition.image} alt={exhibition.exhibitionTitle} />
-      <p className='show-page-description'>{exhibition.description}</p>
+      <div>
 
-      <div className="tag-container">
-        <span className="tag">{exhibition.movement}</span>
-        <span className="tag">{exhibition.artists}</span>
+        <h1 className="title">{exhibition.exhibitionTitle}</h1>
+        <h2 className="exhibition-title">{exhibition.museum}, {exhibition.location}</h2>
+        <p>{exhibition.startDate} until {exhibition.endDate}</p>
+
+
+        <div className='show-page-image-and-tags-container'>
+
+          <img src={exhibition.image} alt={exhibition.exhibitionTitle} />
+
+          <div className="tag-container">
+            <div className="tag">{exhibition.movement}</div>
+            <div className="tag">{exhibition.artists}</div>
+            <div className="tag">{exhibition.price}</div>
+          </div>
+
+        </div>
+
+        <p className='show-page-description'>{exhibition.description}</p>
+
+
+        <div className="buttons">
+          {isLoggedIn && <button className="button" onClick={handleAddToPlanner}>Add to planner</button>}
+          {isAdmin() && <Link to={`/gallery/${exhibitionId}/edit`} className="button">Edit</Link>}
+          {isAdmin() && <button className="button is-danger" onClick={handleDelete}>Remove this exhibition from the gallery</button>}
+        </div>
+
       </div>
 
-      <div className="buttons">
-        {isLoggedIn && <button className="button" onClick={handleAddToPlanner}>Add to planner</button>}
-        {isAdmin() && <Link to={`/gallery/${exhibitionId}/edit`} className="button">Edit</Link>}
-        {isAdmin() && <button className="button is-danger" onClick={handleDelete}>Remove this exhibition from the gallery</button>}
-      </div>
+
 
     </div>
   </div>
