@@ -28,7 +28,7 @@ function Navbar() {
                         {!isLoggedIn && <Link to="/signup" className="button is-warning">Sign up</Link>}
                         {!isLoggedIn && <Link to="/signin" className="button is-success">Sign in</Link>}
                         {isAdmin() && <Link to="/gallery/create" className="button is-success">Create</Link>}
-                        {isLoggedIn && <Link to={`/user/${getPayload().userId}`} className="button is-warning">My planner</Link>}
+                        {isLoggedIn && <Link to={`/user/${getPayload().userId}`} className="button is-warning">Your planner</Link>}
                         {isLoggedIn && <button className="button" onClick={logout}>Sign out</button>}
                     </div>
                 </div>
