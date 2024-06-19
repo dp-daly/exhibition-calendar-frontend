@@ -66,6 +66,7 @@ function ShowExhibition() {
       return <div className="section">
       <div className="container">
         <h1 className="title">{exhibition.exhibitionTitle}</h1>
+        <img src={exhibition.image} alt={exhibition.exhibitionTitle} />
         {isLoggedIn && <button className="button" onClick={handleAddToPlanner}>Add to planner</button>}
         {isAdmin() && <Link to={`/gallery/${exhibitionId}/edit`} className="button">Edit</Link>}
         {isAdmin() && <button className="button is-danger" onClick={handleDelete}>Delete {exhibition.exhibitionTitle}</button>}
