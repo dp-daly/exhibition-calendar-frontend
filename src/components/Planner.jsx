@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
 import { getPayload, isAdmin } from '../lib/auth.js'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Planner() {
 
@@ -14,6 +16,14 @@ export default function Planner() {
     useEffect(() => {
         fetchUser()
     }, [user])
+
+    useEffect(() => {
+        const toastMessage = localStorage.getItem('toastMessage')
+        if (toastMessage) {
+          toast.success(toastMessage)
+          localStorage.removeItem('toastMessage')
+        }
+      }, [])
 
     async function fetchUser() {
         const resp = await fetch(`/api/user/${userId}`)
@@ -57,6 +67,19 @@ export default function Planner() {
                     </Link>
                 ))}
             </div>
+            <ToastContainer
+            position="bottom-center"
+            autoClose={2000}
+            hideProgressBar
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            toastStyle={{ backgroundColor: "blue", color: "white" }}
+            />
         </div>
     )
 }

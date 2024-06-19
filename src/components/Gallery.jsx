@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect, useMemo } from 'react'
 import '../App.css'
-import { ToastContainer, Zoom, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -42,9 +42,10 @@ function Gallery() {
           const exhibitionTitle = exhibition.exhibitionTitle.toLowerCase()
           const artist = exhibition.artists.toLowerCase();
           const institution = exhibition.museum.toLowerCase();
+          const movement = exhibition.movement.toLowerCase();
           const filterText = search.toLowerCase()
           return (
-            (exhibitionTitle.includes(filterText) || artist.includes(filterText) || institution.includes(filterText)) &&
+            (exhibitionTitle.includes(filterText) || artist.includes(filterText) || institution.includes(filterText) || movement.includes(filterText)) &&
             (selectedLocation === '' || exhibition.location === selectedLocation)
           );
         }) 
@@ -87,7 +88,6 @@ function Gallery() {
             draggable
             pauseOnHover
             theme="dark"
-            transition: Zoom
             toastStyle={{ backgroundColor: "blue", color: "white" }}
             />
           <div className="hero" aria-label="Image of sandhill cranes in flight over lake.">
