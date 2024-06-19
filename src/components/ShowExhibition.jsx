@@ -51,14 +51,15 @@ function ShowExhibition() {
   return <div className="section">
     <div className="container">
       <h1 className="title">{exhibition.exhibitionTitle}</h1>
-      <img src={exhibition.image} alt={exhibition.exhibitionTitle} />
-      <p>{exhibition.museum}, {exhibition.location}</p>
+      <h2 className="exhibition-title">{exhibition.museum}, {exhibition.location}</h2>
       <p>{exhibition.startDate} until {exhibition.endDate}</p>
+      <img src={exhibition.image} alt={exhibition.exhibitionTitle} />
+      <p className='show-page-description'>{exhibition.description}</p>
 
       <div className="buttons">
         {isLoggedIn && <button className="button" onClick={handleAddToPlanner}>Add to planner</button>}
         {isAdmin() && <Link to={`/gallery/${exhibitionId}/edit`} className="button">Edit</Link>}
-        {isAdmin() && <button className="button is-danger" onClick={handleDelete}>Delete {exhibition.exhibitionTitle}</button>}
+        {isAdmin() && <button className="button is-danger" onClick={handleDelete}>Remove this exhibition from the gallery</button>}
       </div>
       
     </div>
