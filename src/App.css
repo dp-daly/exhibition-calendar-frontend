@@ -219,3 +219,9 @@ a:hover {
   align-items: flex-start;
   justify-content: space-around;
 }
+
+.image-on-show-page {
+  width: 800px;
+  max-height: 900px;
+  object-fit: cover;
+}

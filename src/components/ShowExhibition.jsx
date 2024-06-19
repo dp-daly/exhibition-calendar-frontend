@@ -49,7 +49,7 @@ function ShowExhibition() {
     }
   }
 
-  return <div>
+  return (
     <div className="show-page-container">
 
       <div>
@@ -61,7 +61,7 @@ function ShowExhibition() {
 
         <div className='show-page-image-and-tags-container'>
 
-          <img src={exhibition.image} alt={exhibition.exhibitionTitle} />
+          <img className="image-on-show-page" src={exhibition.image} alt={exhibition.exhibitionTitle} />
 
           <div className="tag-container">
             <div className="tag">{exhibition.movement}</div>
@@ -85,7 +85,7 @@ function ShowExhibition() {
 
 
     </div>
-  </div>
+  )
 
 
 }
