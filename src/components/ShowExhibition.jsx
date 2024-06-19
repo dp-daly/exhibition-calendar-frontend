@@ -48,21 +48,6 @@ function ShowExhibition() {
     }
   }
 
-  // TODO LOGIC TO REUSE ON PLANNER PAGE
-  // ! WILL NEED TO ADD E.TARGET TO KNOW WHICH EXHIBITION IS BEING 'PULLED'
-  // async function handleRemoveFromPlanner() {
-  //   try {
-  //     const userId = getPayload().userId
-  //     const token = localStorage.getItem("token")
-  //     await axios.delete(`/api/user/${userId}/${exhibitionId}`, {
-  //       headers: { Authorization: `Bearer ${token}` }
-  //     })
-  //     navigate(`/user/${userId}`)
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-  // }
-
   return <div className="section">
     <div className="container">
       <h1 className="title">{exhibition.exhibitionTitle}</h1>

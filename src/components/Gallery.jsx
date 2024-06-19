@@ -5,6 +5,8 @@ import '../App.css'
 function Gallery() {
 
     const [exhibitions, setExhibitions] = useState([])
+    const [search, setSearch] = useState('')
+    const [selectedLocation, setSelectedLocation] = useState('')
 
     useEffect(() => {
         fetchExhibitions()
@@ -17,6 +19,19 @@ function Gallery() {
         setExhibitions(data);
     }
 
+    function filterExhibitions() {
+        const filteredExhibs = exhibitions.filter(exhibition => {
+          const exhibitionTitle = exhibition.exhibitionTitle.toLowerCase()
+          const artist = exhibition.artists.toLowerCase();
+          const institution = exhibition.museum.toLowerCase();
+          const filterText = search.toLowerCase()
+          return exhibitionTitle.includes(filterText) || artist.includes(filterText) || institution.includes(filterText)
+        })
+        return filteredExhibs
+      }
+
+    console.log(search)
+
     return (
         <div className="page-wrapper">
           <div className="hero" aria-label="Image of sandhill cranes in flight over lake.">
@@ -26,8 +41,14 @@ function Gallery() {
             </p>
           </div>
           <h1 className="title">Current and upcoming exhibitions</h1>
+          <input
+          className="input"
+          placeholder="Search exhibitions..."
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+          />
           <div className="box-wrapper">
-            {exhibitions.map((exhibition, index) => (
+            {filterExhibitions().map((exhibition, index) => (
               <Link to={`/gallery/${exhibition._id}`} key={index}>
                 <div>
                   <img className="img-placeholder" src={exhibition.image} alt={exhibition.exhibitionTitle} />

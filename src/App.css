@@ -42,6 +42,7 @@ a:hover {
 
 .hero {
   height: 60vh; 
+  max-height: 80vh;
   margin-bottom: 50px;
   box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.5);
   background-image: url('https://theglossarymagazine.com/wp-content/uploads/Nicola-Turner-The-Meddling-Fiend.webp');
@@ -80,6 +81,8 @@ a:hover {
   gap: 20px;
   padding: 0px 20px 20px 20px; 
   margin-top: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .img-placeholder {
