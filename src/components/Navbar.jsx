@@ -21,14 +21,14 @@ function Navbar() {
     return (
         <nav className="navbar">
             <div className="navbar-menu is-active">
-                <div className="logo"></div>
+                <Link to="/"><div className="logo"></div></Link>
                 <div className="navbar-item">
                     <div className="buttons">
                         <Link to="/" className="button is-dark">Gallery</Link>
                         {!isLoggedIn && <Link to="/signup" className="button is-warning">Sign up</Link>}
                         {!isLoggedIn && <Link to="/signin" className="button is-success">Sign in</Link>}
-                        {isAdmin() && <Link to="/gallery/create" className="button">Create</Link>}
-                        {isLoggedIn && <Link to={`/user/${getPayload().userId}`} className="button is-danger">My planner</Link>}
+                        {isAdmin() && <Link to="/gallery/create" className="button is-success">Create</Link>}
+                        {isLoggedIn && <Link to={`/user/${getPayload().userId}`} className="button is-warning">My planner</Link>}
                         {isLoggedIn && <button className="button" onClick={logout}>Sign out</button>}
                     </div>
                 </div>
