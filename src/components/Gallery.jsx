@@ -93,14 +93,18 @@ function Gallery() {
             theme="dark"
             toastStyle={{ backgroundColor: "blue", color: "white" }}
             />
-            <div className="hero" aria-label="Image of sandhill cranes in flight over lake.">
+            <Link to="/gallery/6674427b281c8e93e8ac9df6">
+            <div className="hero" aria-label="Image of The Man Who Should Be Dead exhibition at Kurimanzutto Gallery in Mexico City.">
                 <div id="p">
-                <div className="pic-heading">Royal Academy Summer Exhibition</div>
+                <div className="top-pick">Top Pick</div>
+                <div className="pic-heading">The Man Who Should Be Dead</div>
                 <div>
-                    The Turner prize-winning Assemble collective has curated the architecture rooms at the 2024 Royal Academy Summer Exhibition with a vision to inspire visitors by bringing the raw creativity – and messiness – of the studio into the heart of the institution. But this year's show has divided critics - is the RA's summer exhibition still relevant or a vestige of a bygone era?
+                    Kurimanzutto, Mexico City
+                    12 January 2024 until 28 July 2024
                 </div>
                 </div>
                 </div>
+            </Link>
             <h1 className="title">Current and upcoming exhibitions</h1>
           <input
           className="input"

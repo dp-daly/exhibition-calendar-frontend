@@ -6,7 +6,6 @@
 body {
   height: auto;
   background-color: #cdd3d3;
-  /* background-image: url('https://i.pinimg.com/736x/68/b7/4f/68b74feae577f960fe3195506103c249.jpg'); */
   background-size: fill; 
 }
 
@@ -45,7 +44,7 @@ a:hover {
   max-height: 80vh;
   margin-bottom: 50px;
   box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.5);
-  background-image: url('https://theglossarymagazine.com/wp-content/uploads/Nicola-Turner-The-Meddling-Fiend.webp');
+  background-image: url('https://files.ocula.com/anzax/85/85cb4cc6-6416-4e00-8bdd-a1f11bfbddcb_1268_938.jpg');
   background-size: cover; 
   background-position: center;
   cursor: pointer;
@@ -53,9 +52,19 @@ a:hover {
   cursor: pointer;
 }
 
-.pic-heading {
+.top-pick {
+  font-family: Arial, Helvetica, sans-serif;
   font-size: x-large;
-  color: #4aade2;
+  font-weight: bold;
+  color: #f4cc06;
+  margin: 0;
+}
+
+.pic-heading {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+  color: #fdfeff;
   margin: 0;
 }
 
@@ -68,6 +77,7 @@ a:hover {
   margin: 0;
   bottom: 0; 
   left: 0; 
+  border-top: 2px solid blue;
 }
 
 .title {
@@ -83,7 +93,8 @@ a:hover {
   margin-top: 20px;
   justify-content: center;
   align-items: center;
-  height: 1300px;
+  min-height: 500px;
+  max-height: 1250px;
   overflow-y: auto;
 }
 
