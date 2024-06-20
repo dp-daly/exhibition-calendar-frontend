@@ -83,6 +83,8 @@ a:hover {
   margin-top: 20px;
   justify-content: center;
   align-items: center;
+  height: 1300px;
+  overflow-y: auto;
 }
 
 .locations {
