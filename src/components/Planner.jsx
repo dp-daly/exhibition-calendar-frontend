@@ -41,6 +41,11 @@ export default function Planner() {
         }
     }
 
+    function hasEnded(endDate) {
+        const currentDate = new Date()
+        const exhibitionEndDate = new Date(endDate)
+        return exhibitionEndDate < currentDate
+    }
 
     return (
         <div className="page-wrapper">
@@ -49,6 +54,7 @@ export default function Planner() {
                 {user.savedExhibitions.map((exhibition, index) => (
                     <div key={index} className="exhibition-card">
                         <div className="img-container">
+                        {hasEnded(exhibition.endDate) && <div className="ended-tag">This exhibition has ended</div>}
                             <Link to={`/gallery/${exhibition._id}`} className="exhibition-link">
                                 <img className="img-placeholder" src={exhibition.image} alt={exhibition.exhibitionTitle} />
                             </Link>
