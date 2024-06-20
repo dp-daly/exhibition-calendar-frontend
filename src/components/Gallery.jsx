@@ -138,7 +138,8 @@ function Gallery() {
           <div className="box-wrapper">
             {filterExhibitions().map((exhibition) => (
               <Link to={`/gallery/${exhibition._id}`} key={exhibition._id}>
-                <div>
+                <div className="img-container">
+                    {exhibition.recommended && <p className="recommended-label">Navart recommends</p>}
                   <img className="img-placeholder" src={exhibition.image} alt={exhibition.exhibitionTitle} />
                 </div>
                 <div className="card-footer">
