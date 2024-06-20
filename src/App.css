@@ -127,9 +127,11 @@ a:hover {
   background-image: linear-gradient(rgba(14, 48, 219, 0.71), rgba(6, 28, 230, 0.551));
   color: white;
   padding: 5px;
-  font-size: 20px; 
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px; 
   font-weight: bold;
   z-index: 1; 
+  border-bottom: 2.5px solid goldenrod;
 }
 
 .img-placeholder {
