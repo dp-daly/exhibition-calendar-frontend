@@ -49,8 +49,9 @@ function EditExhibition() {
     }
 
     function handleChange(e) {
+        const { name, type, value, checked } = e.target;
         const newFormData = structuredClone(formData)
-        newFormData[e.target.name] = e.target.value
+        newFormData[name] = type === 'checkbox' ? checked : value;
         setFormData(newFormData)
     }
 
@@ -186,7 +187,7 @@ function EditExhibition() {
                             type="checkbox"
                             name={'recommended'}
                             onChange={handleChange}
-                            value={formData.recommended}
+                            checked={formData.recommended}
                         />
                     </div>
                 </div>

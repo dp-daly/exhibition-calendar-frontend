@@ -19,16 +19,14 @@ const [formData, setFormData] = useState({
     movement: "",
     price: "",
     description: "",
-    recommended: false,
+    recommended: true,
     comments: []
 })
 
 async function handleSubmit(e) {
     e.preventDefault()
     try {
-      // ! Get our token from localStorage
       const token = localStorage.getItem('token')
-      // ! Attach the token as a header when posting our new cheese
       const { data } = await axios.post('/api/', formData, {
         headers: { Authorization: `Bearer ${token}` }
       })
@@ -40,8 +38,9 @@ async function handleSubmit(e) {
   }
 
   function handleChange(e) {
+    const { name, type, value, checked } = e.target;
     const newFormData = structuredClone(formData)
-    newFormData[e.target.name] = e.target.value
+    newFormData[name] = type === 'checkbox' ? checked : value;
     setFormData(newFormData)
   }
 
@@ -58,6 +57,7 @@ async function handleSubmit(e) {
             name={'exhibitionTitle'}
             onChange={handleChange}
             value={formData.exhibitionTitle}
+            autoComplete="off"
           />
         </div>
       </div>
@@ -70,6 +70,7 @@ async function handleSubmit(e) {
             name={'artists'}
             onChange={handleChange}
             value={formData.artists}
+            autoComplete="off"
           />
         </div>
       </div>
@@ -82,6 +83,7 @@ async function handleSubmit(e) {
             name={'startDate'}
             onChange={handleChange}
             value={formData.startDate}
+            autoComplete="off"
           />
         </div>
       </div>
@@ -94,6 +96,7 @@ async function handleSubmit(e) {
             name={'endDate'}
             onChange={handleChange}
             value={formData.endDate}
+            autoComplete="off"
           />
         </div>
       </div>
@@ -106,6 +109,7 @@ async function handleSubmit(e) {
             name={'location'}
             onChange={handleChange}
             value={formData.location}
+            autoComplete="off"
           />
         </div>
       </div>
@@ -118,6 +122,7 @@ async function handleSubmit(e) {
             name={'museum'}
             onChange={handleChange}
             value={formData.museum}
+            autoComplete="off"
           />
         </div>
       </div>
@@ -130,6 +135,7 @@ async function handleSubmit(e) {
             name={'image'}
             onChange={handleChange}
             value={formData.image}
+            autoComplete="off"
           />
         </div>
       </div>
@@ -142,6 +148,7 @@ async function handleSubmit(e) {
             name={'movement'}
             onChange={handleChange}
             value={formData.movement}
+            autoComplete="off"
           />
         </div>
       </div>
@@ -154,6 +161,7 @@ async function handleSubmit(e) {
             name={'price'}
             onChange={handleChange}
             value={formData.price}
+            autoComplete="off"
           />
         </div>
       </div>
@@ -166,6 +174,7 @@ async function handleSubmit(e) {
             name={'description'}
             onChange={handleChange}
             value={formData.description}
+            autoComplete="off"
           />
         </div>
       </div>
@@ -176,7 +185,7 @@ async function handleSubmit(e) {
             type="checkbox"
             name={'recommended'}
             onChange={handleChange}
-            value={formData.recommended}
+            checked={formData.recommended}
           />
         </div>
       </div>
