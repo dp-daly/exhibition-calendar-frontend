@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Signin() {
     const navigate = useNavigate()
@@ -25,6 +27,7 @@ export default function Signin() {
             navigate('/')
         } catch (err) {
             console.log(err.response.data)
+            toast.error("Try again - something went wrong.");
         }
     }
 
@@ -59,6 +62,19 @@ export default function Signin() {
                 </div>
                 <button className="button">Submit</button>
             </form>
+            <ToastContainer
+                position="bottom-center"
+                autoClose={2000}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+                toastStyle={{ backgroundColor: "black", color: "white" }}
+            />
         </div>
     </div>
 }
