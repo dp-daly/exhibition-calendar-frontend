@@ -98,9 +98,9 @@ a:hover {
 }
 
 .img-container {
-  position: relative; /* Ensure this is positioned relatively */
-  width: 300px; /* Adjust width as needed */
-  height: 270px; /* Adjust height as needed */
+  position: relative; 
+  width: 300px; 
+  height: 270px; 
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.5);
@@ -184,6 +184,19 @@ a:hover {
   margin-top: 20px;
 }
 
+.ended-tag {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  font-size: 20px;
+  width: 100%;
+  font-weight: bold;
+  z-index: 10; 
+}
+
 .remove-from-planner-button {
   position: absolute;
   top: 10px;
@@ -194,15 +207,11 @@ a:hover {
   width: 30px;
   height: 30px;
   font-size: 20px;
-  line-height: 30px; 
+  line-height: 30px;
   text-align: center;
   cursor: pointer;
   padding: 0;
-}
-
-.img-container {
-  position: relative;
-  display: inline-block;
+  z-index: 10;
 }
 
 .remove-from-planner-button:hover {

@@ -11,13 +11,10 @@ function Gallery() {
     const [search, setSearch] = useState('')
     const [selectedLocation, setSelectedLocation] = useState('')
     const [total, setTotal] = useState(0)
-    const [page, setPage] = useState(1)
-    const [totalPages, setTotalPages] = useState(1);
-
 
     useEffect(() => {
         fetchExhibitions()
-    }, [page, search, selectedLocation])
+    }, [search, selectedLocation])
 
     useEffect(() => {
         toast.dismiss()
@@ -46,10 +43,13 @@ function Gallery() {
           const artist = exhibition.artists.toLowerCase();
           const institution = exhibition.museum.toLowerCase();
           const movement = exhibition.movement.toLowerCase();
-          const filterText = search.toLowerCase()
+          const filterText = search.toLowerCase();
+          const currentDate = new Date();
+          const endDate = new Date(exhibition.endDate);
           return (
             (exhibitionTitle.includes(filterText) || artist.includes(filterText) || institution.includes(filterText) || movement.includes(filterText)) &&
-            (selectedLocation === '' || exhibition.location === selectedLocation)
+            (selectedLocation === '' || exhibition.location === selectedLocation) &&
+            (endDate >= currentDate)
           );
         }) 
         return filteredExhibs
@@ -76,16 +76,6 @@ function Gallery() {
 
       function clearFilters() {
         setSelectedLocation('');
-      }
-
-      function handlePage(action) {
-        setPage(currentPage => {
-          if (action === 'previous') {
-            return currentPage - 1;
-          } else {
-            return currentPage + 1;
-          }
-        });
       }
     
     return (
