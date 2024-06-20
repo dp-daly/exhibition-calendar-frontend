@@ -93,7 +93,7 @@ function Gallery() {
             theme="dark"
             toastStyle={{ backgroundColor: "blue", color: "white" }}
             />
-            <Link to="/gallery/6674427b281c8e93e8ac9df6">
+            <Link to="/">
             <div className="hero" aria-label="Image of The Man Who Should Be Dead exhibition at Kurimanzutto Gallery in Mexico City.">
                 <div id="p">
                 <div className="top-pick">Top Pick</div>
