@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function CreateExhibition() {
@@ -34,6 +36,7 @@ async function handleSubmit(e) {
       navigate('/')
     } catch (err) {
       console.log(err.response.data)
+      toast.error("Make sure you fill in all the fields");
     }
   }
 
@@ -191,6 +194,19 @@ async function handleSubmit(e) {
       </div>
       <button className="button">Submit</button>
     </form>
+    <ToastContainer
+        position="bottom-center"
+        autoClose={2000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        toastStyle={{ backgroundColor: "black", color: "white" }}
+        />
   </div>
 </div>
 }

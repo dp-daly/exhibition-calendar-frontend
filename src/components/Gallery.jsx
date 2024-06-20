@@ -153,11 +153,6 @@ function Gallery() {
               </Link>
             ))}
           </div>
-          <div id="page">
-                    <button className="button" disabled={page === 1} onClick={() => handlePage('previous')}>Previous</button>
-                    Page {page} of {totalPages}
-                    <button className="button" onClick={() => handlePage('next')}>Next</button>
-                </div>
         </div>
       );
 }
