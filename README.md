@@ -68,6 +68,8 @@ This site deployed using Netlify and built using various technologies such as:
 
 ## Planning materials 
 
+* https://trello.com/b/4OJNUl00/exhibition-planner
+
 
 
 
