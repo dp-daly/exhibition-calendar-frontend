@@ -3,6 +3,7 @@ import { useState, useEffect, useMemo } from 'react'
 import '../App.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { baseUrl } from '../config';
 
 
 function Gallery() {
@@ -32,7 +33,7 @@ function Gallery() {
       }, [search, total]);
 
     async function fetchExhibitions() {
-        const resp = await fetch('/api/');
+        const resp = await fetch(`${baseUrl}/`);
         const data = await resp.json();
         setExhibitions(data);
     }

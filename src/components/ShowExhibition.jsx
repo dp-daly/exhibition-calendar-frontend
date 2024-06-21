@@ -5,6 +5,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { getPayload, isAdmin } from '../lib/auth.js'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { baseUrl } from '../config';
 
 function ShowExhibition() {
 
@@ -20,7 +21,7 @@ function ShowExhibition() {
   }, [])
 
   async function fetchExhibitions() {
-    const resp = await fetch(`/api/gallery/${exhibitionId}`)
+    const resp = await fetch(`${baseUrl}/gallery/${exhibitionId}`)
     const data = await resp.json()
     setExhibition(data)
   }
@@ -28,7 +29,7 @@ function ShowExhibition() {
   async function handleDelete() {
     try {
       const token = localStorage.getItem("token")
-      await axios.delete(`/api/gallery/${exhibitionId}`, {
+      await axios.delete(`${baseUrl}/gallery/${exhibitionId}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       navigate('/')
@@ -41,7 +42,7 @@ function ShowExhibition() {
     try {
       const userId = getPayload().userId;
       const token = localStorage.getItem("token");
-      const response = await axios.post(`/api/user/${userId}/${exhibitionId}`, {
+      const response = await axios.post(`${baseUrl}/user/${userId}/${exhibitionId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
   

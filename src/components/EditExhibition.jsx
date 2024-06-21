@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { baseUrl } from '../config';
 
 function EditExhibition() {
 
@@ -25,7 +26,7 @@ function EditExhibition() {
 
     useEffect(() => {
         async function fetchExhibitions() {
-            const resp = await fetch(`/api/gallery/${exhibitionId}`)
+            const resp = await fetch(`${baseUrl}/gallery/${exhibitionId}`)
             const data = await resp.json()
             setFormData(data)
         }
@@ -38,7 +39,7 @@ function EditExhibition() {
         e.preventDefault()
         try {
             const token = localStorage.getItem('token')
-            const { data } = await axios.put(`/api/gallery/${exhibitionId}`, formData, {
+            const { data } = await axios.put(`${baseUrl}/gallery/${exhibitionId}`, formData, {
                 headers: { Authorization: `Bearer ${token}` }
             })
             console.log(data)

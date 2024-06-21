@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { getPayload, isAdmin } from '../lib/auth.js'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { baseUrl } from '../config';
 
 export default function Planner() {
 
@@ -24,7 +25,7 @@ export default function Planner() {
       }, [])
 
     async function fetchUser() {
-        const resp = await fetch(`/api/user/${userId}`)
+        const resp = await fetch(`${baseUrl}/user/${userId}`)
         const data = await resp.json()
         setUser(data)
     }
@@ -33,7 +34,7 @@ export default function Planner() {
         try {
             const userId = getPayload().userId
             const token = localStorage.getItem("token")
-            await axios.delete(`/api/user/${userId}/${e.target.id}`, {
+            await axios.delete(`${baseUrl}/user/${userId}/${e.target.id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             })
         } catch (err) {

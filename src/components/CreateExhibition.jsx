@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { baseUrl } from '../config';
 
 
 export default function CreateExhibition() {
@@ -29,7 +30,7 @@ async function handleSubmit(e) {
     e.preventDefault()
     try {
       const token = localStorage.getItem('token')
-      const { data } = await axios.post('/api/', formData, {
+      const { data } = await axios.post(`${baseUrl}/`, formData, {
         headers: { Authorization: `Bearer ${token}` }
       })
       console.log(data)
